@@ -1,13 +1,13 @@
-def call(){
+def call(String CredId, String tag, String image){
   echo "pushing image to dockerhub started"
   withCredentials([usernamePassword(
-    credentialsId:"jenkinsCred"
+    credentialsId:${CredId}
     "usernameVariable":"dockerhubusername"
     "passwordVariable":"dockerhubpassword"
   )])
   sh '''
   docker login -u ${dockerhubusername} -p ${dockerhubpassword}
-  docker image tag todo-app:latest ${dockerhubusername}/todo-app:latest
-  docker push ${dockerusername}/todo-app:latest
+  docker image tag todo-app:latest ${dockerhubusername}/${image}:${tag}
+  docker push ${dockerusername}/${image}:${tag}
   '''
 }
