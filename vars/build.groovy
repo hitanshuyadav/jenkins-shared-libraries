@@ -1,7 +1,7 @@
-def call() {
+def call(String image, String tag, ) {
    echo "building image"
    sh '''
-   docker build -t todo-app:latest .
+   docker build -t ${image}:${tag} .
    '''
     echo "building succesfull"
 }
