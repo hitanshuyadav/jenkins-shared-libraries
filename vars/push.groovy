@@ -1,8 +1,8 @@
 def call(String CredId, String tag, String image){
   echo "pushing image to dockerhub started"
   withCredentials([usernamePassword(
-    credentialsId:"${CredId}"
-    "usernameVariable":"dockerhubusername"
+    credentialsId:"${CredId}",
+    "usernameVariable":"dockerhubusername",
     "passwordVariable":"dockerhubpassword"
   )])
   sh """
