@@ -4,10 +4,12 @@ def call(String CredId, String tag, String image){
     credentialsId:"${CredId}",
     "usernameVariable":"dockerhubusername",
     "passwordVariable":"dockerhubpassword"
-  )])
+  )]){
   sh """
   docker login -u "${dockerhubusername}" -p "${dockerhubpassword}"
   docker image tag todo-app:latest "${dockerhubusername}/${image}:${tag}"
   docker push "${dockerhubusername}/${image}:${tag}"
   """
+  }
+
 }
