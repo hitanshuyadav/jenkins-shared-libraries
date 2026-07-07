@@ -1,5 +1,5 @@
-def call(){
+def call(String url, String branch){
     echo "cloning started"
-    git url: "https://github.com/hitanshuyadav/node-todo-cicd.git", branch: "master"
+    git url: ${url}, branch: ${branch}
     echo "cloning successfull"
 }
