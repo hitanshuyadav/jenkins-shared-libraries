@@ -1,6 +1,6 @@
-def call(){
+def call(String image, String tag, String Hport, String Sport){
 echo "deployement started"
 sh '''
-docker run -p 80:8000 todo-app:latest
+docker run -p ${Hport}:${Sport} ${image}:${tag}
 '''
 }
